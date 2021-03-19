@@ -128,3 +128,85 @@
   INFO [46ad1468] Running /usr/bin/env echo "Branch main (at 28ea8b72da0201baf8ec63d3e831521a3de32100) deployed as release 20210319171215 by steve" >> /var/www/es/revisions.log as rails@10.208.42.130
  DEBUG [46ad1468] Command: cd /var/www/es/releases && /usr/bin/env echo "Branch main (at 28ea8b72da0201baf8ec63d3e831521a3de32100) deployed as release 20210319171215 by steve" >> /var/www/es/revisions.log
   INFO [46ad1468] Finished in 0.219 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-19 12:25:28 -0500 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [0025ad51] Running /usr/bin/env mkdir -p /tmp as rails@10.208.42.130
+ DEBUG [0025ad51] Command: /usr/bin/env mkdir -p /tmp
+  INFO [0025ad51] Finished in 0.826 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-12f3b02f335a682461a8.sh 0.0%
+  INFO Uploading /tmp/git-ssh-12f3b02f335a682461a8.sh 100.0%
+  INFO [6a1478d0] Running /usr/bin/env chmod 700 /tmp/git-ssh-12f3b02f335a682461a8.sh as rails@10.208.42.130
+ DEBUG [6a1478d0] Command: /usr/bin/env chmod 700 /tmp/git-ssh-12f3b02f335a682461a8.sh
+  INFO [6a1478d0] Finished in 0.218 seconds with exit status 0 (successful).
+  INFO [f5070b88] Running /usr/bin/env git ls-remote git@github.com:steve0210/es.git HEAD as rails@10.208.42.130
+ DEBUG [f5070b88] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-12f3b02f335a682461a8.sh" ; /usr/bin/env git ls-remote git@github.com:steve0210/es.git HEAD )
+ DEBUG [f5070b88] 	b28e1c0e46b7ed1a911df9ea8965d60f83b80129	HEAD
+  INFO [f5070b88] Finished in 0.676 seconds with exit status 0 (successful).
+  INFO [4d14904a] Running /usr/bin/env mkdir -p /var/www/es/shared /var/www/es/releases as rails@10.208.42.130
+ DEBUG [4d14904a] Command: /usr/bin/env mkdir -p /var/www/es/shared /var/www/es/releases
+  INFO [4d14904a] Finished in 0.218 seconds with exit status 0 (successful).
+ DEBUG [6f2c3f9c] Running [ -f /var/www/es/current/REVISION ] as rails@10.208.42.130
+ DEBUG [6f2c3f9c] Command: [ -f /var/www/es/current/REVISION ]
+ DEBUG [6f2c3f9c] Finished in 0.214 seconds with exit status 0 (successful).
+ DEBUG [f4b65f6c] Running /usr/bin/env cat /var/www/es/current/REVISION 2>/dev/null as rails@10.208.42.130
+ DEBUG [f4b65f6c] Command: /usr/bin/env cat /var/www/es/current/REVISION 2>/dev/null
+ DEBUG [f4b65f6c] 	28ea8b72da0201baf8ec63d3e831521a3de32100
+ DEBUG [f4b65f6c] Finished in 0.218 seconds with exit status 0 (successful).
+ DEBUG [6f2873fd] Running [ -f /var/www/es/repo/HEAD ] as rails@10.208.42.130
+ DEBUG [6f2873fd] Command: [ -f /var/www/es/repo/HEAD ]
+ DEBUG [6f2873fd] Finished in 0.217 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/es/repo
+ DEBUG [72eb801a] Running if test ! -d /var/www/es/repo; then echo "Directory does not exist '/var/www/es/repo'" 1>&2; false; fi as rails@10.208.42.130
+ DEBUG [72eb801a] Command: if test ! -d /var/www/es/repo; then echo "Directory does not exist '/var/www/es/repo'" 1>&2; false; fi
+ DEBUG [72eb801a] Finished in 0.214 seconds with exit status 0 (successful).
+  INFO [2bf7f48d] Running /usr/bin/env git remote set-url origin git@github.com:steve0210/es.git as rails@10.208.42.130
+ DEBUG [2bf7f48d] Command: cd /var/www/es/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-12f3b02f335a682461a8.sh" ; /usr/bin/env git remote set-url origin git@github.com:steve0210/es.git )
+  INFO [2bf7f48d] Finished in 0.216 seconds with exit status 0 (successful).
+  INFO [f090cc0e] Running /usr/bin/env git remote update --prune as rails@10.208.42.130
+ DEBUG [f090cc0e] Command: cd /var/www/es/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-12f3b02f335a682461a8.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [f090cc0e] 	Fetching origin
+ DEBUG [f090cc0e] 	From github.com:steve0210/es
+   28ea8b7..b28e1c0  main       -> main
+  INFO [f090cc0e] Finished in 0.705 seconds with exit status 0 (successful).
+ DEBUG [6322d3fe] Running if test ! -d /var/www/es/repo; then echo "Directory does not exist '/var/www/es/repo'" 1>&2; false; fi as rails@10.208.42.130
+ DEBUG [6322d3fe] Command: if test ! -d /var/www/es/repo; then echo "Directory does not exist '/var/www/es/repo'" 1>&2; false; fi
+ DEBUG [6322d3fe] Finished in 0.219 seconds with exit status 0 (successful).
+  INFO [1ad232dd] Running /usr/bin/env mkdir -p /var/www/es/releases/20210319172531 as rails@10.208.42.130
+ DEBUG [1ad232dd] Command: cd /var/www/es/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-12f3b02f335a682461a8.sh" ; /usr/bin/env mkdir -p /var/www/es/releases/20210319172531 )
+  INFO [1ad232dd] Finished in 0.216 seconds with exit status 0 (successful).
+  INFO [67a943ca] Running /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /var/www/es/releases/20210319172531 as rails@10.208.42.130
+ DEBUG [67a943ca] Command: cd /var/www/es/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-12f3b02f335a682461a8.sh" ; /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /var/www/es/releases/20210319172531 )
+  INFO [67a943ca] Finished in 0.220 seconds with exit status 0 (successful).
+ DEBUG [1f2c4caa] Running if test ! -d /var/www/es/repo; then echo "Directory does not exist '/var/www/es/repo'" 1>&2; false; fi as rails@10.208.42.130
+ DEBUG [1f2c4caa] Command: if test ! -d /var/www/es/repo; then echo "Directory does not exist '/var/www/es/repo'" 1>&2; false; fi
+ DEBUG [1f2c4caa] Finished in 0.216 seconds with exit status 0 (successful).
+ DEBUG [9ebf4295] Running /usr/bin/env git rev-list --max-count=1 main as rails@10.208.42.130
+ DEBUG [9ebf4295] Command: cd /var/www/es/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-12f3b02f335a682461a8.sh" ; /usr/bin/env git rev-list --max-count=1 main )
+ DEBUG [9ebf4295] 	b28e1c0e46b7ed1a911df9ea8965d60f83b80129
+ DEBUG [9ebf4295] Finished in 0.220 seconds with exit status 0 (successful).
+ DEBUG [6205ef0b] Running if test ! -d /var/www/es/releases/20210319172531; then echo "Directory does not exist '/var/www/es/releases/20210319172531'" 1>&2; false; fi as rails@10.208.42.130
+ DEBUG [6205ef0b] Command: if test ! -d /var/www/es/releases/20210319172531; then echo "Directory does not exist '/var/www/es/releases/20210319172531'" 1>&2; false; fi
+ DEBUG [6205ef0b] Finished in 0.216 seconds with exit status 0 (successful).
+  INFO [34865a8a] Running /usr/bin/env echo "b28e1c0e46b7ed1a911df9ea8965d60f83b80129" > REVISION as rails@10.208.42.130
+ DEBUG [34865a8a] Command: cd /var/www/es/releases/20210319172531 && /usr/bin/env echo "b28e1c0e46b7ed1a911df9ea8965d60f83b80129" > REVISION
+  INFO [34865a8a] Finished in 0.217 seconds with exit status 0 (successful).
+  INFO [b7451c7e] Running /usr/bin/env ln -s /var/www/es/releases/20210319172531 /var/www/es/releases/current as rails@10.208.42.130
+ DEBUG [b7451c7e] Command: /usr/bin/env ln -s /var/www/es/releases/20210319172531 /var/www/es/releases/current
+  INFO [b7451c7e] Finished in 0.219 seconds with exit status 0 (successful).
+  INFO [bf9dcc3c] Running /usr/bin/env mv /var/www/es/releases/current /var/www/es as rails@10.208.42.130
+ DEBUG [bf9dcc3c] Command: /usr/bin/env mv /var/www/es/releases/current /var/www/es
+  INFO [bf9dcc3c] Finished in 0.218 seconds with exit status 0 (successful).
+  INFO [53824a83] Running /usr/bin/env chmod +x /var/www/es/releases/20210319172531/scripts/*.sh as rails@10.208.42.130
+ DEBUG [53824a83] Command: /usr/bin/env chmod +x /var/www/es/releases/20210319172531/scripts/*.sh
+  INFO [53824a83] Finished in 0.217 seconds with exit status 0 (successful).
+ DEBUG [a123eedb] Running /usr/bin/env ls -x /var/www/es/releases as rails@10.208.42.130
+ DEBUG [a123eedb] Command: /usr/bin/env ls -x /var/www/es/releases
+ DEBUG [a123eedb] 	20210319171215	20210319172531
+ DEBUG [a123eedb] Finished in 0.218 seconds with exit status 0 (successful).
+ DEBUG [2c01d6a5] Running if test ! -d /var/www/es/releases; then echo "Directory does not exist '/var/www/es/releases'" 1>&2; false; fi as rails@10.208.42.130
+ DEBUG [2c01d6a5] Command: if test ! -d /var/www/es/releases; then echo "Directory does not exist '/var/www/es/releases'" 1>&2; false; fi
+ DEBUG [2c01d6a5] Finished in 0.216 seconds with exit status 0 (successful).
+  INFO [cd772e54] Running /usr/bin/env echo "Branch main (at b28e1c0e46b7ed1a911df9ea8965d60f83b80129) deployed as release 20210319172531 by steve" >> /var/www/es/revisions.log as rails@10.208.42.130
+ DEBUG [cd772e54] Command: cd /var/www/es/releases && /usr/bin/env echo "Branch main (at b28e1c0e46b7ed1a911df9ea8965d60f83b80129) deployed as release 20210319172531 by steve" >> /var/www/es/revisions.log
+  INFO [cd772e54] Finished in 0.213 seconds with exit status 0 (successful).

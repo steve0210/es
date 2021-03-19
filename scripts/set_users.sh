@@ -12,7 +12,7 @@ ARGF.each do |line|
 end
 
 client = Elasticsearch::Client.new(
-  url: %{http://elastic:#{PASSWORDS[%{elastic}]}@localhost:9200}
+  url: %{http://elastic:#{PASSWORDS[%{elastic}]}@elasticsearch:9200}
 )
 response = client.cluster.health
 
