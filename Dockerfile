@@ -25,8 +25,8 @@ RUN useradd -ms /bin/bash -G rvm,disk rails \
   && mkdir -p /home/rails/tmp
 
 COPY Gemfile* /home/rails/tmp/
-RUN chown -R rails:rails /home/rails \
-  && su - rails -c 'cd /home/rails/tmp && bundle'
+COPY script/docker/bundle.sh /tmp/
+RUN chown -R rails:rails /home/rails && /tmp/bundle.sh
 
 WORKDIR /var/www/es/current
 COPY . .
