@@ -1,8 +1,16 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.16.0"
 
-set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :application, "es"
+set :repo_url, "git@github.com:steve0210/es.git"
+
+namespace :deploy do
+  after :published, :make_complete do
+    on roles(:app) do |h|
+      execute :chmod, "+x", "#{release_path}/scripts/*.sh"
+    end
+  end
+end
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
