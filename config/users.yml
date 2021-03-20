@@ -1,0 +1,7 @@
+---
+kadmin:
+  password: S0nic123
+  roles:
+    - kibana_admin
+kuser:
+  password: S0nic123
