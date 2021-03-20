@@ -1,19 +1,12 @@
 #!/usr/bin/env ruby
 
-require 'elasticsearch'
-require 'elasticsearch/xpack'
-require 'patron'
+$LOAD_PATH.unshift(File.expand_path("../../lib", __FILE__))
+require 'import'
+require 'client'
 
-PASSWORDS = {}
-ARGF.each do |line|
-  if m = line.match(/PASSWORD (.*) = (.*)/)
-    PASSWORDS[m[1]] = m[2]
-  end
-end
+import = Import.new(ARGF)
 
-client = Elasticsearch::Client.new(
-  url: %{http://elastic:#{PASSWORDS[%{elastic}]}@elasticsearch:9200}
-)
+client = Client.new(import.passwords["elastic"]).client
 response = client.cluster.health
 
 puts "#{response.inspect}"
