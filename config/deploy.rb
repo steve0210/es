@@ -6,10 +6,12 @@ set :repo_url, "git@github.com:steve0210/es.git"
 
 namespace :deploy do
   after :published, :make_complete do
-    on roles(:app) do |h|
-      execute :chmod, "+x", "#{release_path}/scripts/*.sh"
-      execute :dos2unix, "#{release_path}/scripts/*.sh"
-      execute :"docker-compose", "build", "user"
+    on roles(:app), in: :sequence do |h|
+      within release_path do
+        execute :chmod, "+x", "./scripts/*.sh"
+        execute :dos2unix, "./scripts/*.sh"
+        execute :"docker-compose", "build", "users"
+      end
     end
   end
 end
