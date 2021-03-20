@@ -7,7 +7,6 @@ class Import
   def initialize(in_file, env_file)
     process_in(in_file)
     process_env(env_file)
-    replace_env(env_file)
   end
 
   def process_in(in_file)
@@ -22,10 +21,6 @@ class Import
     File.readlines(env_file).map(&:strip).each do |line|
       lines << (match(line) || line)
     end
-  end
-
-  def replace_env(env_file)
-    File.write(env_file, lines.join("\n") + "\n")
   end
 
   def match(line)
