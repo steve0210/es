@@ -5,3 +5,4 @@ kadmin:
     - kibana_admin
 kuser:
   password: S0nic123
+  roles: []
