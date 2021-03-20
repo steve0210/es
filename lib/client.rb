@@ -12,7 +12,7 @@ class Client
 
   def client
     @client ||= Elasticsearch::Client.new(
-      url: %{http://elastic:#{PASSWORDS[%{elastic}]}@elasticsearch:9200}
+      url: %{http://elastic:#{password}@elasticsearch:9200}
     )
   end
 end
