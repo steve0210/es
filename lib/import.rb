@@ -1,7 +1,8 @@
 
 class Import
   ENV = {
-    "kibana_system" => ["ELASTICSEARCH_PASSWORD"]
+    "kibana_system" => ["ELASTICSEARCH_PASSWORD"],
+    "elastic" => ["ELASTIC"]
   }
 
   def initialize(in_file, env_file)
