@@ -8,8 +8,8 @@ require 'client'
 import = Import.new(ARGF, File.expand_path(File.join(path, ".env"), __FILE__))
 
 client = Client.new(
-  import.passwords["elastic"],
-  File.expand_path(File.join(path, "config", "users.yml"), __FILE__)
+  File.expand_path(File.join(path, "config", "users.yml"), __FILE__),
+  import.passwords["elastic"]
 )
 
 client.send_users

@@ -5,10 +5,11 @@ require 'yaml'
 
 class Client
 
-  attr_accessor :password, :users
+  attr_accessor :password, :user, :users
 
-  def initialize(es_password, users_file)
+  def initialize(users_file, es_password, es_user = "elastic")
     self.password = es_password
+    self.user = es_user
     self.users = YAML.load(File.read(users_file))
   end
 
@@ -23,7 +24,7 @@ class Client
 
   def client
     @client ||= Elasticsearch::Client.new(
-      url: %{http://elastic:#{password}@elasticsearch:9200}
+      url: %{http://#{user}:#{password}@elasticsearch:9200}
     )
   end
 end
