@@ -10,7 +10,7 @@ namespace :deploy do
       within release_path do
         execute :chmod, "+x", "./scripts/*.sh"
         execute :dos2unix, "./scripts/*.sh"
-        execute :"docker-compose", "build", "users"
+        execute :"docker-compose", "build", "users" if fetch(:d_enable)
       end
     end
   end
