@@ -8,6 +8,8 @@ namespace :deploy do
   after :published, :make_complete do
     on roles(:app) do |h|
       execute :chmod, "+x", "#{release_path}/scripts/*.sh"
+      execute :dos2unix, "#{release_path}/scripts/*.sh"
+      execute :"docker-compose", "build", "user"
     end
   end
 end
