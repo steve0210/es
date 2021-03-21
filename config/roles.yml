@@ -1,0 +1,6 @@
+---
+kadminr:
+  cluster: manage_security
+  indices:
+    names: *
+    privileges: monitor
