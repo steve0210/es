@@ -2,5 +2,5 @@
 kadminr:
   cluster: manage_security
   indices:
-    names: *
+    names: "*"
     privileges: monitor
