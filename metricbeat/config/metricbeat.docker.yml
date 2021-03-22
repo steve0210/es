@@ -34,3 +34,5 @@ output.elasticsearch:
 
 setup.kibana:
   host: "kibana:5601"
+
+setup.ilm.overwrite: true
