@@ -4,9 +4,13 @@ kadmin:
   roles:
     - kibana_admin
     - kadminr
-kuser:
+mb_user:
   password: S0nic123
-  roles: []
+  roles:
+    - metricbeat_reader
+    - kibana_admin
+    - monitoring_user
+    - beats_admin
 mb_setup:
   password: S0nic123
   roles:

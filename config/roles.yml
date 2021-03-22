@@ -28,3 +28,9 @@ metricbeat_writer:
         - create_doc
         - view_index_metadata
         - create_index
+metricbeat_reader:
+  indices:
+    - names:
+        - "metricbeat-*"
+      privileges:
+        - read
