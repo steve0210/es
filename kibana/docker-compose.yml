@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  # Elasticsearch Docker Images: https://www.docker.elastic.co/
+  # https://github.com/deviantony/docker-elk/blob/main/elasticsearch/config/elasticsearch.yml
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.10.2
+    environment:
+      - ELASTICSEARCH_PASSWORD
+      - ELASTICSEARCH_USERNAME=kibana_system
+      - SERVER_HOST=0.0.0.0
+      - SERVER_NAME=my-kibana
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - 5601:5601
+    networks:
+      - my-net
+
+networks:
+  my-net:
+    external: true

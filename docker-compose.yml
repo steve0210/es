@@ -22,28 +22,6 @@ services:
       - 9300:9300
     networks:
       - my-net
-  kibana:
-    image: docker.elastic.co/kibana/kibana:7.10.2
-    environment:
-      - ELASTICSEARCH_PASSWORD
-      - ELASTICSEARCH_USERNAME=kibana_system
-      - SERVER_HOST=0.0.0.0
-      - SERVER_NAME=my-kibana
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-    ports:
-      - 5601:5601
-    networks:
-      - my-net
-  metricbeat:
-    image: docker.elastic.co/beats/metricbeat:7.10.2
-    environment:
-      - ELASTICSEARCH_PASSWORD=S0nic123
-      - ELASTICSEARCH_USERNAME=mb_setup
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-    volumes:
-      - "/var/www/es/current/config/metricbeat.docker.yml:/usr/share/metricbeat/metricbeat.yml:ro"
-    networks:
-      - my-net
 
 networks:
   my-net:
