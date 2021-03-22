@@ -7,3 +7,10 @@ kadmin:
 kuser:
   password: S0nic123
   roles: []
+mb_setup:
+  password: S0nic123
+  roles:
+    - metricbeat_setup
+    - kibana_admin
+    - ingest_admin
+    - beats_admin

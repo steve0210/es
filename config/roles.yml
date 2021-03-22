@@ -7,3 +7,24 @@ kadminr:
         - "*"
       privileges:
         - monitor
+metricbeat_setup:
+  cluster:
+    - monitor
+    - manage_ilm
+  indices:
+    - names:
+        - "metricbeat-*"
+      privileges:
+        - manage
+        - write
+metricbeat_writer:
+  cluster:
+    - monitor
+    - read_ilm
+  indices:
+    - names:
+        - "metricbeat-*"
+      privileges:
+        - create_doc
+        - view_index_metadata
+        - create_index
