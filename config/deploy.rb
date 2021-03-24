@@ -8,8 +8,8 @@ namespace :deploy do
   after :published, :make_complete do
     on roles(:app), in: :sequence do |h|
       within release_path do
-        execute :chmod, "+x", "./scripts/*.sh"
-        execute :dos2unix, "./scripts/*.sh"
+        execute :chmod, "+x", %{$(find ./scripts -name "*.sh")}
+        execute :dos2unix, %{$(find ./scripts -name "*.sh")}
         execute :"docker-compose", "build", "users" if fetch(:d_enable)
       end
     end
