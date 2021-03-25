@@ -16,6 +16,6 @@ if [ -f "$chain" ]; then
 else
   echo "making chain $chain"
   cat $cert $icert > $chain
-  cp $chain $cert
+  cp -f $chain $cert
   chmod 444 $cert
 fi

@@ -17,10 +17,10 @@ else
   chmod 400 $key
 fi
 
-if [ -f $key ]; then
+if [ -f $csr ]; then
   echo "csr $csr exists"
 else
   echo "making csr $csr ..."
   openssl req -config intermediate/openssl.cnf \
-    -extensions req_ext -key $key -new -sha256 -out $csr
+    -key $key -new -sha256 -out $csr
 fi
