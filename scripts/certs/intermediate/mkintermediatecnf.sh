@@ -79,21 +79,19 @@ organizationalUnitName_default  = IT
 emailAddress_default            = info@SonicHealthcareUSA.com
 commonName_default              = ES Cert
 
-[ usr_cert ]
-# Extensions for client certificates (`man x509v3_config`).
-basicConstraints = CA:FALSE
-subjectKeyIdentifier = hash
-authorityKeyIdentifier = keyid,issuer
-keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment
-extendedKeyUsage = clientAuth, emailProtection
+[ req_ext ]
+subjectAltName = @alt_names
 
-[ server_cert ]
+[alt_names]
+IP.1 = 127.0.0.1
+
+[ es_cert ]
 # Extensions for server certificates (`man x509v3_config`).
 basicConstraints = CA:FALSE
 subjectKeyIdentifier = hash
 authorityKeyIdentifier = keyid,issuer:always
 keyUsage = critical, digitalSignature, keyEncipherment
-extendedKeyUsage = serverAuth
+extendedKeyUsage = serverAuth, clientAuth
 
 [ crl_ext ]
 # Extension for CRLs (`man x509v3_config`).
