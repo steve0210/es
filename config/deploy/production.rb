@@ -9,7 +9,7 @@
 
 server "10.208.42.130", user: "rails", roles: %w{app}
 set :branch, 'main'
-set :d_enable, true
+set :d_enable, false
 
 # role-based syntax
 # ==================
