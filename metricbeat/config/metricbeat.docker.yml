@@ -31,6 +31,8 @@ output.elasticsearch:
   hosts: '${ELASTICSEARCH_HOSTS:elasticsearch:9200}'
   username: '${ELASTICSEARCH_USERNAME:}'
   password: '${ELASTICSEARCH_PASSWORD:}'
+  ssl.certificate_authorities:
+    - /certs/client/root.crt
 
 setup.kibana:
   host: "kibana:5601"

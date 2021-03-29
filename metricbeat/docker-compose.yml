@@ -10,8 +10,9 @@ services:
     environment:
       - ELASTICSEARCH_PASSWORD=S0nic123
       - ELASTICSEARCH_USERNAME=mb_setup
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_HOSTS=https://elasticsearch:9200
     volumes:
+      - "/var/www/es/shared/ca/out:/certs"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "/sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro"
       - "/proc:/hostfs/proc:ro"

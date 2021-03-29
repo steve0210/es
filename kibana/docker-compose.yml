@@ -10,7 +10,11 @@ services:
       - ELASTICSEARCH_USERNAME=kibana_system
       - SERVER_HOST=0.0.0.0
       - SERVER_NAME=my-kibana
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_HOSTS=https://elasticsearch:9200
+      - ELASTICSEARCH_SSL_VERIFICATIONMODE=certificate
+      - ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=/certs/client/root.crt
+    volumes:
+      - "/var/www/es/shared/ca/out:/certs"
     ports:
       - 5601:5601
     networks:
