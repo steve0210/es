@@ -34,7 +34,8 @@ class Client
 
   def client
     @client ||= Elasticsearch::Client.new(
-      url: %{http://#{user}:#{password}@elasticsearch:9200}
+      url: %{https://#{user}:#{password}@elasticsearch:9200},
+      transport_options: { ssl: { verify: false, ca_file: '/certs/client/root.crt' } }
     )
   end
 end

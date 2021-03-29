@@ -7,6 +7,8 @@ services:
     image: ruby_users
     build: /var/www/es/current
     container_name: ruby_users_app
+    volumes:
+      - "/var/www/es/shared/ca/out:/certs"
     tty: true
     networks:
       - my-net
@@ -18,11 +20,12 @@ services:
       - cluster.name=es-docker-cluster
       - discovery.type=single-node
       - xpack.security.http.ssl.enabled=true
-      - xpack.security.http.ssl.key=/certs/server/abc/server.key
-      - xpack.security.http.ssl.certificate=/certs/server/abc/server.crt
-      - xpack.security.http.ssl.certificate_authorities=/certs/client/root.crt
+      - xpack.security.http.ssl.verification_mode=certificate
+      - xpack.security.http.ssl.key=certs/server/abc/server.key
+      - xpack.security.http.ssl.certificate=certs/server/abc/server.crt
+      - xpack.security.http.ssl.certificate_authorities=certs/client/root.crt
     volumes:
-      - "/var/www/es/current/ca/out:/certs:ro"
+      - "/var/www/es/shared/ca/out:/usr/share/elasticsearch/config/certs"
     ports:
       - 9200:9200
       - 9300:9300
