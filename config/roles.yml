@@ -7,6 +7,14 @@ kadminr:
         - "*"
       privileges:
         - monitor
+apm_setup:
+  cluster:
+    - manage_ilm
+  indices:
+    - names:
+        - "apm-*"
+      privileges:
+        - manage
 metricbeat_setup:
   cluster:
     - monitor

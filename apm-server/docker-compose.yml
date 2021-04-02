@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  # Elasticsearch Docker Images: https://www.docker.elastic.co/
+  # https://github.com/deviantony/docker-elk/blob/main/elasticsearch/config/elasticsearch.yml
+  apm_server:
+    image: my_apm_server
+    build: /var/www/es/current/apm-server
+    environment:
+      - ELASTICSEARCH_PASSWORD=S0nic123
+      - ELASTICSEARCH_USERNAME=apm_setup
+      - ELASTICSEARCH_HOSTS=https://elasticsearch:9200
+    volumes:
+      - "/var/www/es/shared/ca/out:/certs"
+    networks:
+      - my-net
+
+networks:
+  my-net:
+    external: true
