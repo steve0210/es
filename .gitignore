@@ -1,4 +1,6 @@
 log/
 tmp/
 ca/
+bin/
+obj/
 
