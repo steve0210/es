@@ -1,6 +1,7 @@
 #!/bin/sh
 
-docker-compose up -d elasticsearch && \
+([ ! -d ./ca/out ] && ./scripts/certs/mkbs.sh || true) && \
+  docker-compose up -d elasticsearch && \
   sleep 30 && \
   yes | \
   docker-compose exec -T elasticsearch /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto | \
