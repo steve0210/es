@@ -10,5 +10,5 @@ docker-compose up -d elasticsearch && \
   (cd ./metricbeat && docker-compose run --rm metricbeat setup && docker-compose up -d metricbeat) && \
   (cd ./apm-server && docker-compose up -d apm_server) && \
   sleep 30 && \
-  (cd ./dotnet/TodoApi && docker-compose up -d dotnet)
+  (cd ./dotnet/TodoApi && ./scripts/build.sh nobuild && docker-compose up -d dotnet)
 # (cd ./metricbeat && docker-compose up metricbeat)

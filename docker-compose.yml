@@ -5,7 +5,6 @@ services:
   # https://github.com/deviantony/docker-elk/blob/main/elasticsearch/config/elasticsearch.yml
   users:
     image: ruby_users
-    build: /var/www/es/current
     container_name: ruby_users_app
     volumes:
       - "/var/www/es/shared/ca/out:/certs"
