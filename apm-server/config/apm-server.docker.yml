@@ -102,7 +102,7 @@ apm-server:
   # Agents include the token in the following format: Authorization: Bearer <secret-token>.
   # It is recommended to use an authorization token in combination with SSL enabled,
   # and save the token in the apm-server keystore.
-  secret_token: S0nic123
+  secret_token: "${AGENT_TOKEN:}"
 
   # Enable API key authorization by setting enabled to true. By default API key support is disabled.
   # Agents include a valid API key in the following format: Authorization: ApiKey <token>.
@@ -281,17 +281,17 @@ apm-server:
 
   #kibana:
     # For APM Agent configuration in Kibana, enabled must be true.
-    #enabled: false
+    enabled: true
 
     # Scheme and port can be left out and will be set to the default (`http` and `5601`).
     # In case you specify an additional path, the scheme is required: `http://localhost:5601/path`.
     # IPv6 addresses should always be defined as: `https://[2001:db8::1]:5601`.
-    #host: "localhost:5601"
+    host: "${KIBANA_HOSTS:kibana:5601}"
 
     # Optional protocol and basic auth credentials.
     #protocol: "https"
-    #username: "elastic"
-    #password: "changeme"
+    #username: "${KIBANA_USERNAME:}"
+    #password: "${KIBANA_PASSWORD:}"
 
     # Optional HTTP path.
     #path: ""
