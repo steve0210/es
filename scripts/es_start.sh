@@ -1,6 +1,6 @@
 #!/bin/sh
 
-([ ! -d ./ca/out ] && ./scripts/certs/mkbs.sh || true) && \
+./scripts/certs/mkbs.sh && \
   docker-compose up -d elasticsearch && \
   sleep 30 && \
   yes | \
