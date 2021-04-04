@@ -15,6 +15,9 @@ apm_setup:
         - "apm-*"
       privileges:
         - manage
+        - create_doc
+        - create_index
+        - read
 metricbeat_setup:
   cluster:
     - monitor

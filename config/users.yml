@@ -23,3 +23,4 @@ apm_setup:
   roles:
     - apm_setup
     - ingest_admin
+    - apm_system
