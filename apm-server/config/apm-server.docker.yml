@@ -279,7 +279,7 @@ apm-server:
   # Specify cache key expiration via this setting. Default is 30 seconds.
   #agent.config.cache.expiration: 30s
 
-  #kibana:
+  kibana:
     # For APM Agent configuration in Kibana, enabled must be true.
     enabled: true
 
@@ -290,8 +290,8 @@ apm-server:
 
     # Optional protocol and basic auth credentials.
     #protocol: "https"
-    #username: "${KIBANA_USERNAME:}"
-    #password: "${KIBANA_PASSWORD:}"
+    username: "${KIBANA_USERNAME:}"
+    password: "${KIBANA_PASSWORD:}"
 
     # Optional HTTP path.
     #path: ""
