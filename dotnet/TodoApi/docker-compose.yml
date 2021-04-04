@@ -6,6 +6,9 @@ services:
   dotnet:
     image: my_app
     build: /var/www/es/current/dotnet/TodoApi
+    command: ["dotnet", "/app/bin/Debug/netcoreapp3.1/publish/TodoApi.dll"]
+    ports:
+      - 5000:5000
     networks:
       - my-net
 
