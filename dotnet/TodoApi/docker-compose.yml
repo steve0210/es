@@ -9,8 +9,6 @@ services:
     command: ["dotnet", "/app/bin/Debug/netcoreapp3.1/publish/TodoApi.dll"]
     environment:
       - ASPNETCORE_URLS=http://0.0.0.0:5000
-    volumes:
-      - "/var/www/es/shared/ca/out:/certs"
     ports:
       - 5000:5000
     networks:
