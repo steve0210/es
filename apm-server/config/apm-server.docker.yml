@@ -66,16 +66,16 @@ apm-server:
   #---------------------------- APM Server - Secure Communication with Agents ----------------------------
 
   # Enable secure communication between APM agents and the server. By default ssl is disabled.
-  #ssl:
-    #enabled: false
+  ssl:
+    enabled: true
 
     # Path to file containing the certificate for server authentication.
     # Needs to be configured when ssl is enabled.
-    #certificate: ''
+    certificate: "${SSL_CERTIFICATE:}"
 
     # Path to file containing server certificate key.
     # Needs to be configured when ssl is enabled.
-    #key: ''
+    key: "${SSL_KEY:}"
 
     # Optional configuration options for ssl communication.
 
