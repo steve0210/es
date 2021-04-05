@@ -675,7 +675,7 @@ output.elasticsearch:
 
   # List of root certificates for HTTPS server verifications.
   ssl.certificate_authorities:
-    - /certs/client/root.crt
+    - "${ELASTICSEARCH_SSL_CA:}"
 
   # Certificate for SSL client authentication.
   #ssl.certificate: "/etc/pki/client/cert.pem"
