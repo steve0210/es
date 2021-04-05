@@ -5,6 +5,7 @@ services:
   # https://github.com/deviantony/docker-elk/blob/main/elasticsearch/config/elasticsearch.yml
   apm_server:
     image: my_apm_server
+    build: .
     environment:
       - ELASTICSEARCH_PASSWORD=S0nic123
       - ELASTICSEARCH_USERNAME=apm_setup
